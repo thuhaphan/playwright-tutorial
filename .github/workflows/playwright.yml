@@ -18,7 +18,7 @@ on:
           - main
           - master
 jobs:
-  test:
+  Deploy:
     runs-on: ubuntu-latest  # Chạy trên môi trường Ubuntu (Linux)
 
     steps:
