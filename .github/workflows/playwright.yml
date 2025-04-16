@@ -1,22 +1,22 @@
 name: Playwright CI
 
 on:
-  push:
-    branches:
-      - master  # Chạy khi có push lên nhánh chính
-  pull_request:
-    branches:
-      - master  # Chạy khi có pull request vào nhánh chính
+  # push:
+  #   branches:
+  #     - master  # Chạy khi có push lên nhánh chính
+  # pull_request:
+  #   branches:
+  #     - master  # Chạy khi có pull request vào nhánh chính
   workflow_dispatch:
     inputs:
       branch:
         description: 'Branch to run tests from'
         required: true
-        default: 'master'
+        default: 'main'
         type: choice
         options:
-          - master
           - main
+          - master
 jobs:
   test:
     runs-on: ubuntu-latest  # Chạy trên môi trường Ubuntu (Linux)
@@ -25,7 +25,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2  # Checkout mã nguồn từ repo
       with:
-        ref: ${{ github.event.inputs.branch || github.ref_name }}
+        ref: ${{ github.event.inputs.branch }}
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
