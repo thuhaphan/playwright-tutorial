@@ -33,8 +33,8 @@ jobs:
       run: |
         npx playwright test  # Chạy các test của Playwright
 
-        - name: Show trace
-        if: failure()  # Chỉ hiển thị trace khi có lỗi
-        run: |
-          npx playwright show-trace trace.zip
+    - name: Show trace
+      if: failure()  # Chỉ hiển thị trace khi có lỗi
+      run: |
+        npx playwright show-trace trace.zip
       
